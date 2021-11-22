@@ -2,10 +2,12 @@
 
 ***
 
-&emsp;&emsp;`Easyio` 是一款适配于`ESP-IDF`框架的`开源驱动库`，以支持`ESP32`的简便开发。其目的是在保持官方SDK灵活性的同时，大幅度简化乐鑫`ESP-IDF`开发框架的使用难度。（方便的话，有开源的Arduino和Platform可以用，但在工作上有时会硬性要求使用`ESP-IDF`，毕竟要对接FAE，于是就萌生了搞个 `Easyio` 的想法）
+> &emsp;&emsp;`Easyio` 是一款适配于`ESP-IDF`框架的`开源驱动库`，以支持`ESP32`的简便开发。其目的是在保持官方SDK灵活性的同时，大幅度简化乐鑫`ESP-IDF`开发框架的使用难度。（方便的话，有开源的Arduino和Platform可以用，但在工作上有时会硬性要求使用`ESP-IDF`，毕竟要对接FAE，于是就萌生了搞个 `Easyio` 的想法）
 
 &emsp;&emsp;功能上，`Easyio` 已初具雏形，目前涵盖如下的驱动：
+
 * LED、GPIO（+中断）
+
 * 按键（队列方式，数目几无上限）、触摸按键
 * ADC（8通道）、DAC（2通道）
 * LEDc、PWM（+输入捕获）、PCNT（编码器计数）
