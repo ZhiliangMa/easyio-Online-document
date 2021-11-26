@@ -8,4 +8,5 @@
     * [04_GPIO_IN_OUT](md/04_GPIO_IN_OUT.md)
     * [05_Task](md/05_Task.md)
     * [06_GPIO_INTR](md/06_GPIO_INTR.md)
-    * [07_GPIO_INTR_Queue](07_GPIO_INTR_Queue.md)
+    * [07_GPIO_INTR_Queue](md/07_GPIO_INTR_Queue.md)
+    * [08_KEY](md/08_KEY.md)
