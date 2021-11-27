@@ -1,7 +1,7 @@
 * 简介
     * [easyio库概况](md/easyio_lib.md)
     * [配套开发板概况](md/esp32_iot_kit.md)
-* Demo&API
+* 基础外设
     * [01_blink](md/01_blink.md)
     * [02_ledBlink](md/02_ledBlink.md)
     * [03_easyio_led](md/03_easyio_led.md)
@@ -10,3 +10,7 @@
     * [06_GPIO_INTR](md/06_GPIO_INTR.md)
     * [07_GPIO_INTR_Queue](md/07_GPIO_INTR_Queue.md)
     * [08_KEY](md/08_KEY.md)
+* WIFI
+* Bluetooth
+* Ethernet
+* LVGL-GUI
