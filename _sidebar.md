@@ -10,6 +10,8 @@
     * [06_GPIO_INTR](md/06_GPIO_INTR.md)
     * [07_GPIO_INTR_Queue](md/07_GPIO_INTR_Queue.md)
     * [08_KEY](md/08_KEY.md)
+    * [09_TouchPad](md/09_TouchPad.md)
+    * [10_LEDc_PWM](md/10_LEDc_PWM.md)
 * WIFI
 * Bluetooth
 * Ethernet
