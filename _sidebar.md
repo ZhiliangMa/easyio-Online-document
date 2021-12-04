@@ -12,6 +12,7 @@
     * [08_KEY](md/08_KEY.md)
     * [09_TouchPad](md/09_TouchPad.md)
     * [10_LEDc_PWM](md/10_LEDc_PWM.md)
+    * [11_ADC](md/11_ADC.md)
 * WIFI
 * Bluetooth
 * Ethernet
