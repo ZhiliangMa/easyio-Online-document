@@ -35,19 +35,19 @@ idf.py flash
 
 电容触摸屏可用，可进行拖拽、滑动操作，开发板配套的`FT6236U` 为单点电容屏。
 
-![ESP32-IOT-KIT开发板图1](images/ESP32-IOT-KIT-LVGL_1.png)
+![ESP32-IOT-KIT开发板图1](https://github.com/ZhiliangMa/lv_port_esp32_iot_kit/raw/master/images/ESP32-IOT-KIT-LVGL_1.png)
 
 <br/>
 
 同时开发板允许使用上方的 `J5`接口，去插接额外的LCD模组。
 
-![ESP32-IOT-KIT开发板图2](images/ESP32-IOT-KIT-LVGL_2.png)
+![ESP32-IOT-KIT开发板图2](https://github.com/ZhiliangMa/lv_port_esp32_iot_kit/raw/master/images/ESP32-IOT-KIT-LVGL_2.png)
 
 <br/>
 
 运行正视图。
 
-![ESP32-IOT-KIT开发板图](images/ESP32-IOT-KIT.jpg)
+![ESP32-IOT-KIT开发板图](https://github.com/ZhiliangMa/lv_port_esp32_iot_kit/raw/master/images/ESP32-IOT-KIT.jpg)
 
 ***
 
@@ -115,3 +115,41 @@ git clone --recurse-submodules -b release/v7 https://github.com/lvgl/lv_sim_visu
 &emsp;&emsp;不过我运行时，此分支不能正常运行，只有master可正常运行，即V8的模拟器可正常运行。
 
 ***
+
+## 优化刷屏帧率
+
+- 工程内默认配置使用IRAM，默认使用`行像素`x`40行`x`2`字节的双BUFF。运行`benchmark`跑分Demo的成绩为：
+
+40M SPI速度、IRAM开启、320x40x2字节双缓存、160MHz主频。FPS：41。OPS：75%。
+
+- 更快的刷屏方式1：将SPI的刷屏速率，由40MHz提高到80MHz。但很有可能会出现花屏，降低稳定性。（ESP32-IOT-KIT使用ST7789V+FT6236U单点电容屏组合时，以80MHz刷屏时，需将TF卡插入，会解决绝大多数的花屏问题）
+
+- 【修改SPI速率的测试结果，运行`benchmark`跑分Demo的成绩】：
+
+40M SPI速度、IRAM开启、320x40x2字节双缓存、160MHz主频。FPS：41。OPS：75%。
+
+80M SPI速度、IRAM开启、320x40x2字节双缓存、160MHz主频。FPS：52。OPS：68%。
+
+- 更快的刷屏方式1：将ESP32的运行主频，由160MHz提高到240MHz。为了降低功耗，IDF工程一般都是使用ESP32的160MHz去运行，调整为240MHz后会提高MCU的运算能力，从而提高LVGL的刷屏帧率。（menuconfig中寻找`CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ`，此项可调整ESP32的默认主频）
+
+- 【修改ESP32主频的测试结果，运行`benchmark`跑分Demo的成绩】：
+
+40M SPI速度、IRAM开启、320x40x2字节双缓存、160MHz主频。FPS：41。OPS：75%。
+
+40M SPI速度、IRAM开启、320x40x2字节双缓存、240MHz主频。FPS：53。OPS：82%。
+
+80M SPI速度、IRAM开启、320x40x2字节双缓存、240MHz主频。FPS：60。OPS：78%。
+
+- 个人小结：80MHz的SPI刷屏速率不具备普适性，绝大多数的SPI屏幕能支持的速率还是40MHz。虽然80MHz可以用，而盲目的将SPI速率增大到80MHz只会增加不稳定性。从测试结果可以看出，在ESP32的主频为240MHz时，SPI速率为40MHz和80MHz带来的影响并不是特别的大，而为了稳定性，更建议使用SPI为40MHz的配置。
+
+***
+
+## 注意事项
+
+- `ESP-IDF` 环境建议使用 `V4.2.2`。
+
+- 工程设置项的`SPI`刷屏速率为 `40MHz`，以确保绝大多数使用者可以无误运行此demo。
+
+- 如需修改`SPI`刷屏速率，请参考我的博客 [ESP32+st7789/ili9341运行LVGL例程](https://blog.csdn.net/Mark_md/article/details/120343727?spm=1001.2014.3001.5501)。
+
+- 开发板配套的 `ST7789V + FT6236U` 单点电容屏模组，支持最大 `80MHz` 的SPI速率。但配置为`80MHz`时可能会出现轻微花屏，此时建议将TF卡插入右侧TF卡槽中，即可解决绝大多数问题，实现完美刷屏。
