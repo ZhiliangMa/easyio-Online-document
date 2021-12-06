@@ -13,6 +13,7 @@
     * [09_TouchPad](md/09_TouchPad.md)
     * [10_LEDc_PWM](md/10_LEDc_PWM.md)
     * [11_ADC](md/11_ADC.md)
+    * [LVGL_V7](md/LVGL_V7.md)
 * WIFI
 * Bluetooth
 * Ethernet
