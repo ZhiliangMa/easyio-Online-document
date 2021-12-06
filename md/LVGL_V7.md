@@ -35,19 +35,19 @@ idf.py flash
 
 电容触摸屏可用，可进行拖拽、滑动操作，开发板配套的`FT6236U` 为单点电容屏。
 
-![ESP32-IOT-KIT开发板图1](https://github.com/ZhiliangMa/lv_port_esp32_iot_kit/raw/master/images/ESP32-IOT-KIT-LVGL_1.png)
+![ESP32-IOT-KIT开发板图1](../images/ESP32-IOT-KIT-LVGL_1.png)
 
 <br/>
 
 同时开发板允许使用上方的 `J5`接口，去插接额外的LCD模组。
 
-![ESP32-IOT-KIT开发板图2](https://github.com/ZhiliangMa/lv_port_esp32_iot_kit/raw/master/images/ESP32-IOT-KIT-LVGL_2.png)
+![ESP32-IOT-KIT开发板图2](../images/ESP32-IOT-KIT-LVGL_2.png)
 
 <br/>
 
 运行正视图。
 
-![ESP32-IOT-KIT开发板图](https://github.com/ZhiliangMa/lv_port_esp32_iot_kit/raw/master/images/ESP32-IOT-KIT.jpg)
+![ESP32-IOT-KIT开发板图](../images/ESP32-IOT-KIT.jpg)
 
 ***
 
@@ -80,7 +80,7 @@ idf.py flash
 
 - 支持文档：[官方在线文档 - Demo及预览](https://docs.lvgl.io/master/examples.html#a-button-with-a-label-and-react-on-click-event)
 
-![lvgl_ex_demo](../image/lvgl_ex_demo.jpg)
+![lvgl_ex_demo](../images/lvgl_ex_demo.jpg)
 
 ### 如何使用单独控件的Demo
 
@@ -92,11 +92,11 @@ idf.py flash
 
 - 2、在`main.c`中，注释掉原有的 `create_demo_application();`，添加对应的控件Demo。如 `components/lv_examples/lv_ex_widgets/lv_ex_arc` 中的 弧形控件。
 
-![lvgl_ex_demo_add](../image/lvgl_ex_demo_add.jpg)
+![lvgl_ex_demo_add](../images/lvgl_ex_demo_add.jpg)
 
 - 3、编译、下载运行。能看到如下运行现象。
 
-![lv_ex_demo_arc](../image/lv_ex_demo_arc.jpg)
+![lv_ex_demo_arc](../images/lv_ex_demo_arc.jpg)
 
 - 4、LVGL官方附带的Demo，都是跟上面一样的使用方法。支持文档：[官方在线文档 - Demo及预览](https://docs.lvgl.io/master/examples.html#a-button-with-a-label-and-react-on-click-event)
 

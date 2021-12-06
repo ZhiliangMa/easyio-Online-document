@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-![logo](image/iotKit_all_860_430.png)
+![logo](images/iotKit_all_860_430.png)
 
 # Easyio & ESP-IOT-KIT <small>3.5</small>
 
